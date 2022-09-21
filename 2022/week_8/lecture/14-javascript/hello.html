@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>hello</title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+            <input type="submit">
+        </form>
+
+        <script>
+            // method 1
+            //function greet()
+            //{
+            //    // document is a global variable in javascript storing the webpage object, querySelector is a method selecting an element from the document
+            //    let name = document.querySelector("#name").value;  // getting the value from the element with id "name"
+            //    alert("hello, " + name);  // a built-in function to show an alert in browser
+            //}
+            //document.querySelector("form").addEventListner("submit", greet)  // once submit event call greet
+
+            // method 2
+            document.querySelector("form").addEventListener("submit", function(e) {  // e is the event passed to the function
+                let name = document.querySelector("#name").value;  // getting the value from the element with id "name"
+                alert("hello, " + name);  // a built-in function to show an alert in browser
+                e.preventDefault();  // prevent the default handeling function of that event
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let email_address = document.querySelector("#email_address");
+                email_address.addEventListener("click", function(e) {
+                    e.preventDefault();  // preventing the default behaviour of the anchor
+                    let text = email_address.innerHTML;
+                    copy_to_clipboard(text);
+                })
+
+                let phone_number = document.querySelector("#phone_number");
+                phone_number.addEventListener("click", function(e) {
+                    e.preventDefault();  // preventing the default behaviour of the anchor
+                    let text = phone_number.innerHTML;
+                    copy_to_clipboard(text);
+                })
+
+                function copy_to_clipboard(text) {
+                    navigator.clipboard.writeText(text)
+                    .then(() => {  // this is copy paste for catching errors
+                        alert('Text copied to clipboard');
+                    })
+                    .catch(err => {
+                        alert('Error in copying text: ', err);
+                    })
+                }
+            })
+        </script>
+        <title>Contact - Arsany Samuel</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <ul class="nav">
+                <li class="nav-item" id="site-logo">
+                    <a class="topbar-link nav-link" href="./index.html">Arsany Samuel</a>
+                </li>
+                <li class="topbar-item topnav-item nav-item ms-auto">
+                    <a class="topbar-link nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="topbar-item topnav-item nav-item">
+                    <a class="topbar-link nav-link" href="./about.html">About</a>
+                </li>
+                <li class="topbar-item topnav-item nav-item">
+                    <a class="topbar-link nav-link" href="./portfolio.html">Portfolio</a>
+                </li>
+                <li class="topbar-item topnav-item nav-item">
+                    <a class="topbar-link nav-link" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <hr>  <!--Horizontal line-->
+
+        <h1>
+            Contact me
+        </h1>
+
+        <div class="center">
+            <h3>
+                Email: &nbsp;&nbsp;
+                <a class="topbar-link" href="#" id="email_address" title="Click to copy">
+                    arsanysamuel.as@gmail.com
+                </a>
+            </h3>
+            <br>
+            <h3>
+                Phone: &nbsp;&nbsp;
+                <a class="topbar-link" href="#" id="phone_number" title="Click to copy">
+                    +20-106-887-4670
+                </a>
+            </h3>
+            <h3>
+                Links:
+                <a class="img-link" href="https://gitlab.com/arsanysamuel" target="_blank">
+                    <img class="contact-img-link" src='icons/gitlab.png' alt="Gitlab" title="Gitlab"></a>
+                <a class="img-link" href="https://github.com/arsanysamuel" target="_blank">
+                    <img class="contact-img-link" src='icons/github.png' alt="Github" title="Github"></a>
+                <a class="img-link" href="https://www.linkedin.com/in/arsanysamuel/" target="_blank">
+                    <img class="contact-img-link" src='icons/linkedin.png' alt="Linkedin" title="Linkedin"></a>
+                <a class="img-link" href="mailto:arsanysamuel.as@gmail.com">
+                    <img class="contact-img-link" src='icons/email.png' alt="Send email" title="Send e-mail"></a>
+            </h3>
+        </div>
+
+    </body>
+</html>

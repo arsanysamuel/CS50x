@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>hello</title>
+    </head>
+    <body>
+        <form action="/greet" method="get">  <!--defining the route which the user will be directed after submitting-->
+            <input autocomplete="off" autofocus name="username" placeholder="Name" required type="text">
+            <!--name attribute of input is the name of the attribute which will be sent by GET-->
+            <!--required attribute requires the user to fill the form but it's unsafe because it's client side checking-->
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>History</h1><br>
+    <table class="table table-bordered table-hover">
+        {% if transactions|length > 0 %}
+            <!--Table heading-->
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+
+            <!--Table content-->
+            {% for t in transactions %}
+                <tr>
+                    <td>{{ t["symbol"]  }}</td>
+                    <td>{{ t["shares"] }}</td>
+                    <td>{{ t["price"] | usd }}</td>
+                    <td>{{ t["time"] }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="100%">You have not made any transactions yet.</td>
+        </tr>
+        {% endif %}
+    </table>
+{% endblock %}

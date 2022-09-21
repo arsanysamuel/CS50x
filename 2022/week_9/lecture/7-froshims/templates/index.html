@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>
+        Register
+    </h1>
+    <form action="/register" method="post">
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        {% for sport in sports %}  <!--jinja for loop-->
+        <input name="sport" type="radio" value="{{ sport }}"> {{ sport }}  <!--could set the type as checkbox also-->
+        {% endfor %}
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h1>Assets</h1><br>
+    <table class="table table-bordered table-hover">
+        {% if assets|length > 0 %}
+            <!--Table heading-->
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Total</th>
+            </tr>
+
+            <!--Table content-->
+            {% for asset in assets %}
+                <tr>
+                    <td>{{ asset["symbol"]  }}</td>
+                    <td>{{ asset["name"] }}</td>
+                    <td>{{ asset["shares"] }}</td>
+                    <td>{{ asset["price"] | usd }}</td>
+                    <td>{{ (asset["price"] * asset["shares"]) | usd }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="100%">You have no assets</td>
+        </tr>
+        {% endif %}
+
+        <tfoot class="border-0">
+            <tr class="border-0">
+                <td class="border-0 text-end" colspan="4"><b>Cash</b></td>
+                <td class="border-0 text-end">{{ cash | usd }}</td>
+            </tr>
+            <tr class="border-0">
+                <td class="border-0 text-end" colspan="4"><b>TOTAL</b></td>
+                <td class="border-0 text-end">{{ total | usd }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

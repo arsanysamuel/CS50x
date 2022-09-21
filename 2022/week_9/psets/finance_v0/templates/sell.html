@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <h1>Sell Stocks</h1><br>
+    <form action="/sell" method="post">
+        <div class="mb-3" id="sell_stock_dropdown">
+            <!--using javascript function getShares, this is a self reference object-->
+            <select autofocus class="form-select form-select-lg mx-auto text-center w-auto" id="sell_stock_select" name="symbol" required>
+                <option disable selected value="">Symbol</option>
+                {% for symbol in symbols %}
+                    <option value={{ symbol }}>{{ symbol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto text-center w-auto" disabled id="shares_tobe_sold" min="0" max="0" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

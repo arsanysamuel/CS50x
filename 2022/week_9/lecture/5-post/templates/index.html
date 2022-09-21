@@ -1,0 +1,9 @@
+<!--This is called flask templating code-->
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/greet" method="post">  <!--using post method for private info-->
+        <input autocomplete="off" autofocus name="username" placeholder="Name" required type="text">
+        <input type="submit">
+    </form>
+{% endblock %}

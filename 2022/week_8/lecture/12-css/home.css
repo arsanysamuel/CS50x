@@ -1,0 +1,19 @@
+.centered  /*Defining "aethetic" classes for the ease of use*/
+{
+    text-align: center;
+}
+
+.large
+{
+    font-size: large;
+}
+
+.medium
+{
+    font-size: medium;
+}
+
+.small
+{
+    font-size: small;
+}

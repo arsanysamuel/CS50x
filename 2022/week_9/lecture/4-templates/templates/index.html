@@ -1,0 +1,9 @@
+<!--This is called flask templating code-->
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/greet" method="get">  <!--defining the route which the user will be directed after submitting-->
+        <input autocomplete="off" autofocus name="username" placeholder="Name" required type="text">
+        <input type="submit">
+    </form>
+{% endblock %}

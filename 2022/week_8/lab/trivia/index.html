@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {  // waiting for the whole page to load to use its content
+                // Part 1
+                // Correct answer button
+                let correct_btn = document.querySelector(".correct_answer");  // getting the correct button elemnet
+                let feedback_1 = document.querySelector("#feedback_1");
+                correct_btn.addEventListener("click", function() {
+                    correct_btn.style.backgroundColor = "#76f776";
+                    feedback_1.innerHTML = "Correct";
+                })
+
+                // Wrong answers buttons
+                let wrong_btns = document.querySelectorAll(".wrong_answer");  // returning a nodeList of buttons
+                for (let i = 0; i < wrong_btns.length; i++)
+                {
+                    wrong_btns[i].addEventListener("click", function() {
+                        wrong_btns[i].style.backgroundColor = "#f77678";
+                        feedback_1.innerHTML = "Incorrect";
+                    })
+                }
+
+                // Part 2
+                let correct_answer = "World Wide Web";
+                let textField = document.querySelector("#answer_textbox");
+                document.querySelector("#check_answer_button").addEventListener("click", function() {
+                    if (textField.value.toLowerCase() === correct_answer.toLowerCase())
+                    {
+                        textField.style.backgroundColor = "#76f776";
+                        feedback_2.innerHTML = "Correct";
+                    }
+                    else
+                    {
+                        textField.style.backgroundColor = "#f77678";
+                        feedback_2.innerHTML = "Incorrect";
+                    }
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <h3>What was the name of the boy who won Willy Wonka’s factory?</h3>
+                <p id="feedback_1"></p>
+
+                <button class="wrong_answer">
+                    Charlie Baxter
+                </button>
+
+                <button class="wrong_answer">
+                    Charlie Brown
+                </button>
+
+                <button class="wrong_answer">
+                    Charlie Bones
+                </button>
+
+                <button class="correct_answer">
+                    Charlie Bucket
+                </button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What does “www” stand for in a website browser?</h3>
+                <p id="feedback_2"></p>
+                <input autocomplete="off" id="answer_textbox" type="text" type="submit" placeholder="Answer">
+                <button id="check_answer_button">Check Answer</button>
+            </div>
+        </div>
+    </body>
+</html>
